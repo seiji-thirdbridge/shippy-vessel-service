@@ -1,4 +1,4 @@
-// vessel-service/proto/vessel/vessel.proto
+// shippy-vessel-service/proto/vessel/vessel.proto
 syntax = "proto3";
 
 package go.micro.srv.vessel;

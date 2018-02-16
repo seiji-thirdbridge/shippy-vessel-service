@@ -1,13 +1,13 @@
 # shippy-vessel-service/Makefile
 
 build:
-	protoc -I. --go_out=plugins=micro:$(GOPATH)/src/github.com/seiji-thirdbridge/shippy-vessel-service \
+	protoc -I. --go_out=plugins=micro:. \
 		proto/vessel/vessel.proto
 	docker build -t vessel-service .
 
 run:
-	docker run \
-		-p 50052:50051 \
-		-e MICRO_SERVER_ADDRESS:50051 \
+	docker run -d --net="host" \
+		-p 50053 \
+		-e MICRO_SERVER_ADDRESS:50053 \
 		-e MICRO_REGISTRY=mdns \
 		vessel-service
